@@ -128,4 +128,38 @@ function getPasswordOptions() {
         alert("Password needs to be less than 129 characters long");
         return; 
     }
+
+    // Add a Special Character to the password
+    var addSpecialCharacter = confirm(
+        "Click OK to add a Special Character to the password"
+    );
+
+    // Add a Numeric Character to the password
+    var addNumericCharacter = confirm(
+        "Click OK to add a Numeric Number to the password"
+    );
+
+    // Add a Lowercase Character to the password
+    var addLowercaseCharacter = confirm(
+        "Click OK to add a Lowercase Character to the password"
+    );
+
+    // Add an Uppercase Character to the password
+    var addUppercaseCharacter = confirm(
+        "Click OK to add a Uppercase Character to the password"
+    );
+
+    // Making sure they have at least one of each character
+    if (
+        addSpecialCharacter === false &&
+        addNumericCharacter === false &&
+        addLowercaseCharacter === false &&
+        addUppercaseCharacter === false 
+    ) {
+        alert("Please add at least one of each character type")
+        return;
+    }
+
+    
+
 }
