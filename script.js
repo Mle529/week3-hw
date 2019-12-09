@@ -33,76 +33,17 @@ var specialCharacters = [
 
 // Array of Numeric Characters
 var numericCharacters = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "0"
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
 ];
 
 // Array of Lowercase Characters
 var lowercaseCharacters = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z"
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
 ];
 
 // Array of Uppercase Characters
 var uppercaseCharacters = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z"
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
 ];
 
 // Asking users their password preference
@@ -160,7 +101,7 @@ function getPasswordOptions() {
         return;
     }
 
-    // Creating a var to store the user character input
+    // Creating a var to store the user's character input
     var passwordOptions = {
         length: length,
         addSpecialCharacters: addSpecialCharacters,
@@ -183,8 +124,7 @@ function getPasswordOptions() {
   copyBtn.addEventListener("click", copyToClipboard);
 
 
-
-// this function is to generate a random character from the arrays
+ // This function is to generate a random character from the arrays
 function getRandom(arr) {
     var randIndex = Math.floor(Math.random() * arr.length);
     var randElement = arr[randIndex];
@@ -192,14 +132,19 @@ function getRandom(arr) {
     return randElement;
 }
 
+// This function will generate a password
 function generatePassword() {
     var options = getPasswordOptions();
     
+    // This will store the generated password
     var result = [];
+
+    // These variables are arrays that will store generated characters
     var generatedChars = [];
     var chosenChar = [];
 
     // This is to add the array of special characters to the generatedChar array and push new random speical characters to the chosenChar.
+    // The concat will combine the sting of characters to from the password
     if (options.addSpecialCharacters) {
         generatedChars = generatedChars.concat(specialCharacters);
         chosenChar.push(getRandom(specialCharacters));
@@ -211,16 +156,19 @@ function generatePassword() {
         chosenChar.push(getRandom(numericCharacters));
     }
 
+    // This is to add the array of Lowercase characters
     if (options.addLowercaseCharacters) {
         generatedChars = generatedChars.concat(lowercaseCharacters);
         chosenChar.push(getRandom(lowercaseCharacters));
     }
 
+    // This is to add the array of Uppercase characters
     if (options.addUppercaseCharacters) {
         generatedChars = generatedChars.concat(uppercaseCharacters);
         chosenChar.push(getRandom(uppercaseCharacters));
     }
 
+    // This For loop creates a password based on how many characters long the user inputs
     for (var i = 0; i < options.length; i++) {
         var generatedPassword = getRandom(generatedChars);
 
@@ -231,6 +179,7 @@ function generatePassword() {
         
         result[i] = chosenChar[i];
 
+    // The result of the generated password
     return result.join("");
     }
 
