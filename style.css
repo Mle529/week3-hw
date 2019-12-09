@@ -1,3 +1,121 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Overall body */
+body {
+    font-family: sans-serif;
+    background-color: rgb(235, 231, 231);
+}
+
+/* Content wrapper that includes card header, body and footer */
+.wrapper {
+    padding: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 header {
     text-align: center;
+    padding: 15px;
+    padding-top: 5px;
 }
+
+.card-header::after {
+    content: " ";
+    display: block;
+    width: 100%;
+    background-color: lightgrey;
+    height: 3px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 5px;
+    border-width: 1px;
+    color: darkslategray;
+    font-size: 15px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 35px;
+    box-shadow: rgb(160, 156, 156) 2px 2px 2px 2px;
+   
+}
+
+.card-body {
+    min-height: 100px;
+}
+
+/* Password generator box and content */
+#password {
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 15px 15px 85px 15px;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+    border: 2px dashed lightgrey;
+    border-radius: 6px;
+    resize: none;
+    overflow: hidden;
+  }
+
+.card-footer::before {
+    content: " ";
+    display: block;
+    width: 100%;
+    background-color: white;
+}
+
+.card-footer::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+/* Button design */
+.btn {
+    border: none;
+    background-color: rgb(179, 16, 16);
+    border-radius: 20px;
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 22px;
+    margin: 17px;
+    padding: 14px 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+button[disabled] {
+    cursor: default;
+    background-color: lightgrey;
+}
+
+.float-right {
+    float: right;
+}
+
+/* Mobile formatting */
+@media (max-width: 690px) {
+    .btn {
+      font-size: 1rem;
+      margin: 10px 0px 0px 0px;
+      padding: 10px 10px;
+    }
+  
+    #password {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .btn {
+      font-size: 0.8rem;
+    }
+  }
+  
